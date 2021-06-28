@@ -77,15 +77,44 @@ dice()
 /* Ex.2 
     Write a function called "whoIsBigger" which receives 2 numbers as parameters and returns the biggest one.
 */
+let num1, num2
+function whoIsBigger(num1, num2){
+
+    if(num1>num2)
+    {
+        return num1
+    }
+    else{
+       return num2
+    }
+}
+
+console.log(whoIsBigger(23,45))
 
 /* Ex.3
     Write a function called "splitMe" which receives a string as a parameter and returns an array with every word in that string.
     Ex. splitMe("I love coding") => returns ["I", "Love", "Coding"]
 */
+let word
+function splitMe(word) {
+   return  word.split(" ")    
+}
 
+console.log(splitMe("Hello strivers !"))
 /* Ex.4
     Write a function called "deleteOne" which receives a string and a boolean as parameters. If the boolean value is true it should return the string without the first letter, otherwise it should remove the last one from it.
 */
+function deleteOne(name,conditionApply) {
+     if(conditionApply === true)
+     {
+         return name.slice(1,0)
+     }
+     else{
+         return name.slice(0,-1)
+     }
+}
+
+console.log(deleteOne("Helloo!",true))
 
 /* Ex.5
    Write a function called "onlyLetters" which receives a string as a parameter and returns it removing all the digits.
@@ -96,10 +125,62 @@ dice()
    Write a function called "isThisAnEmail" which receives a string as a parameter and returns true if the string is a valid email address.
 */
 
+/*function isThisAnEmail(mail){
+    var validRegex = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+    
+    if (mail.value.match(validRegex)) {
+
+        return true;
+    }
+    else{
+        return false;
+    }
+}
+console.log(isThisAnEmail("checkmail.3@gmil.com"))*/
 /* Ex.7
    Write a function called "whatDayIsIt" that should return the current day of the week.
 */
+function whatDayIsIt(){
 
+    var today = new Date();
+
+  var day = today.getDay();
+
+  switch(day){
+    case 0:
+    day = "Sunday";
+    break;
+
+    case 1:
+    day = "Monday";
+    break;
+
+    case 2:
+    day ="Tuesday";
+    break;
+
+    case 3:
+    day = "Wednesday";
+    break;
+
+    case 4:
+    day = "Thrusday";
+    break;
+
+    case 5:
+    day = "Friday";
+    break;
+
+    case 6:
+    day = "Saturday";
+    break;
+  }
+ console.log(day)
+
+
+}
+
+whatDayIsIt()
 /* Ex.8
     Write a function called "rollTheDices" which receives a number as a parameter.
     It should invoke the dice() function defined in Ex1 the specified amount of times,

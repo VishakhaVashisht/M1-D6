@@ -205,10 +205,15 @@ function rollTheDices(diceNumber){
     let sum
     let values = [ ]
     for (let i = 0; i<diceNumber; i++){
-        values.push(dice(diceNumber))
-        console.log("Array" ,values)  
+
+        values.push(dice(i)) 
     }   
-    
+    console.log("Array of dice Number:")
+    return values
+    var total=0;
+    for(var i in values) { total += values[i]; }
+    console.log("Sum of dice Number:")
+    return total
 }
 
 console.log(rollTheDices(3))
@@ -216,13 +221,43 @@ console.log(rollTheDices(3))
    Write a function called "howManyDays" which receives a date as a parameter and should return the number of days passed since that date.
 */
 
+function howManyDays(year, month, day) {
+    const d = new Date();
+    currentYear = d.getFullYear();
+    currentMonth = d.getMonth();
+    currentDay = d.getDate();
+  
+  
+    let date1 = new Date(`${currentYear}/${currentMonth}/${currentDay}`);
+    let date2 = new Date(`${year}/${month}/${day}`);
+  
+  
+    let differenceInTime = date1.getTime() - date2.getTime();
+    let differenceInDays = differenceInTime / (1000 * 3600 * 24);
+    return parseInt(differenceInDays);
+  }
+  
+  
+  console.log(howManyDays(2021, 03, 2));  
+
 /* Ex.10
    Write a function called "isTodayMyBirthday" which should return true if today's your birthday, false otherwise.
 */
 
-function isTodayMyBirthday(){
-
-}
+function isTodayMyBirthday() {
+    const d = new Date();
+    const currentMonth = d.getMonth();
+    const currentDay = d.getDate();
+    if (currentMonth === 1 && currentDay === 1) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+  
+  
+  console.log(isTodayMyBirthday());
+  
 // JS Arrays // Objs
 // NOTE: movies array is defined at the end of this file!
 
@@ -231,18 +266,54 @@ function isTodayMyBirthday(){
 */
 
 
-
+function deleteProp(obj, str) {
+    const arr = [];
+    for (let i = 0; i < obj.length; i++) {
+      if (obj[i].Title.toLowerCase() !== str.toLowerCase()) {
+        arr.push(obj[i]);
+      }
+    }
+    return arr;
+  }
+  
+console.log(deleteProp["movies","lord of rings"])
 /* Ex.12 
     Write a function called "olderMovie" which finds the oldest movie in the array provided at the end of this file.
 */
+function olderMovie(arr) {
+    const oldest = arr.reduce((curr, next) =>
+      curr.Year < next.Year ? curr : next
+    );
+    return oldest;
+  }
 
+ console.log( olderMovie())
+  
 /* Ex.13
     Write a function called "countMovies" which returns the number of movies contained in the array provided at the end of this file.
 */
-
+function countMovies(arr) {
+    let numberOfMovies = 0;
+    for (let i = 0; i < arr.length; i++) {
+      numberOfMovies++;
+    }
+    return numberOfMovies;
+  }
+  
+  console.log(countMovies())
 /* Ex.14
     Write a function called "onlyTheTitles" which creates an array with just the titles of the movies provided in the array at the end of the file.
 */
+
+function onlyTheTitles(arr) {
+    const titles = [];
+    for (let i = 0; i < arr.length; i++) {
+      titles.push(arr[i].Title);
+    }
+    return titles;
+  }
+  
+  console.log(onlyTheTitles())
 
 /* Ex.15
    Write a function called "onlyInThisMillennium" which returns only the movies produced in this millennium.

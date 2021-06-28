@@ -30,7 +30,7 @@ console.log(sum)
     Create a variable called "random" and assign to it a random number between 0 and 20 (it should be randomly created at each execution).
 */
 
-        let random = Math.random() * (20 - 0) + 0
+        let random = Math.floor(Math.random() * (20 - 0) + 0)
 console.log(" Generating Random Number", random)
 /* Ex.D
     Create a variable called "me" and assign to it an object containing the following information: name = your name, surname = your surname, age = your age.
@@ -53,14 +53,13 @@ console.log(me)
 /* Ex.F 
    Programmatically add to the object me an array called "skills", containing the programming languages you know right now.
 */
-information.sklls ="test"
+information.skills =["html", "css" , "javaScript", "wordPress"]
 console.log(me)
 /* Ex.G 
    Programmatically remove the last skill from the "skills" array inside the "me" object.
 */
- let skills = ['skill1', 'skill2', 'skill3', 'skill4','skill5']
- information.skills = skills
- skills.pop()
+
+ me.skills.pop()
  console.log(me)
 // JS Functions
 /* Ex.1
@@ -104,10 +103,11 @@ console.log(splitMe("Hello strivers !"))
 /* Ex.4
     Write a function called "deleteOne" which receives a string and a boolean as parameters. If the boolean value is true it should return the string without the first letter, otherwise it should remove the last one from it.
 */
+
 function deleteOne(name,conditionApply) {
      if(conditionApply === true)
      {
-         return name.slice(1,0)
+         return name.slice(1)
      }
      else{
          return name.slice(0,-1)
@@ -200,12 +200,17 @@ whatDayIsIt()
    Write a function called "isTodayMyBirthday" which should return true if today's your birthday, false otherwise.
 */
 
+function isTodayMyBirthday(){
+
+}
 // JS Arrays // Objs
 // NOTE: movies array is defined at the end of this file!
 
 /* Ex.11
    Write a function called "deleteProp" which receives an object and a string as parameters, and returns the given object after deleting its property named as the given string.
 */
+
+
 
 /* Ex.12 
     Write a function called "olderMovie" which finds the oldest movie in the array provided at the end of this file.

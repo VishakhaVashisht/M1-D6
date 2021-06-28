@@ -133,10 +133,11 @@ console.log(onlyLetters("yes, i have 3 letters"))
    Write a function called "isThisAnEmail" which receives a string as a parameter and returns true if the string is a valid email address.
 */
 
-/*function isThisAnEmail(mail){
-    var validRegex = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+function isThisAnEmail(mail){
+    let validRegex = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+    let validation = validRegex.test(mail)
     
-    if (mail.value.match(validRegex)) {
+    if (validation === true) {
 
         return true;
     }
@@ -144,7 +145,7 @@ console.log(onlyLetters("yes, i have 3 letters"))
         return false;
     }
 }
-console.log(isThisAnEmail("checkmail.3@gmil.com"))*/
+console.log(isThisAnEmail("checkmail.3@gmil.com"))
 /* Ex.7
    Write a function called "whatDayIsIt" that should return the current day of the week.
 */

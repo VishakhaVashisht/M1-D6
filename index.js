@@ -66,12 +66,12 @@ console.log(me)
     Write a function called "dice"; it should randomize an integer number between 1 and 6.
 */
 
-function dice(){
+function dice(min, max){
     const rndInt = Math.floor(Math.random() * 6) + 1
     console.log(rndInt)
 }
 
-dice()
+dice(1,6)
 
 /* Ex.2 
     Write a function called "whoIsBigger" which receives 2 numbers as parameters and returns the biggest one.
@@ -124,7 +124,7 @@ console.log(deleteOne("Helloo!",true))
 function onlyLetters(string)
 {
     
-    string =    string.replace("3", "")
+    string =    string.replace("/[0-9]/g", "")
     return string;
 }
 
@@ -201,6 +201,17 @@ whatDayIsIt()
     }
 */
 
+function rollTheDices(diceNumber){
+    let sum
+    let values = [ ]
+    for (let i = 0; i<diceNumber; i++){
+        values.push(dice(diceNumber))
+        console.log("Array" ,values)  
+    }   
+    
+}
+
+console.log(rollTheDices(3))
 /* Ex.9
    Write a function called "howManyDays" which receives a date as a parameter and should return the number of days passed since that date.
 */

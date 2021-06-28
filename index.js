@@ -266,54 +266,19 @@ function isTodayMyBirthday() {
 */
 
 
-function deleteProp(obj, str) {
-    const arr = [];
-    for (let i = 0; i < obj.length; i++) {
-      if (obj[i].Title.toLowerCase() !== str.toLowerCase()) {
-        arr.push(obj[i]);
-      }
-    }
-    return arr;
-  }
-  
-console.log(deleteProp["movies","lord of rings"])
+
+
 /* Ex.12 
     Write a function called "olderMovie" which finds the oldest movie in the array provided at the end of this file.
 */
-function olderMovie(arr) {
-    const oldest = arr.reduce((curr, next) =>
-      curr.Year < next.Year ? curr : next
-    );
-    return oldest;
-  }
 
- console.log( olderMovie())
-  
 /* Ex.13
     Write a function called "countMovies" which returns the number of movies contained in the array provided at the end of this file.
 */
-function countMovies(arr) {
-    let numberOfMovies = 0;
-    for (let i = 0; i < arr.length; i++) {
-      numberOfMovies++;
-    }
-    return numberOfMovies;
-  }
-  
-  console.log(countMovies())
+
 /* Ex.14
     Write a function called "onlyTheTitles" which creates an array with just the titles of the movies provided in the array at the end of the file.
 */
-
-function onlyTheTitles(arr) {
-    const titles = [];
-    for (let i = 0; i < arr.length; i++) {
-      titles.push(arr[i].Title);
-    }
-    return titles;
-  }
-  
-  console.log(onlyTheTitles())
 
 /* Ex.15
    Write a function called "onlyInThisMillennium" which returns only the movies produced in this millennium.
@@ -352,6 +317,17 @@ function onlyTheTitles(arr) {
   ***
 */
 
+function halfTree(paraNumber){
+
+
+    for(var i=1; i<=paraNumber; i++){
+        console.log("* ".repeat(i));
+     }
+ 
+} 
+
+halfTree(5)
+
 /* Ex.22 
   Create a function called "tree" which receives a number as a parameter and builds an "*" tree with the given height.
   Example: 
@@ -364,7 +340,33 @@ function onlyTheTitles(arr) {
 /* Ex.23
   Create a function called "isItPrime" that receives a number as a parameter and returns true if the given number is a prime number.
 */
+const isItPrime = (primeNumber) =>{
+let isPrime = true;
+if (primeNumber === 1) {
+    console.log("1 is neither prime nor composite number.");
+}
 
+else if (primeNumber > 1) {
+
+    for (let i = 2; i < primeNumber; i++) {
+        if (primeNumber % i == 0) {
+            isPrime = false;
+            break;
+        }
+    }
+
+    if (isPrime == true) {
+        console.log(`${primeNumber} is a prime number`);
+    } else {
+        console.log(`${primeNumber} is a not prime number`);
+    }
+}
+else {
+    console.log("The number is not a prime number.");
+}
+}
+
+isItPrime(45)
 /* This movies array is used throughout the exercises. Please don't change it :)  */
 const movies = [
     {

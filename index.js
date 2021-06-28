@@ -121,6 +121,14 @@ console.log(deleteOne("Helloo!",true))
    Ex.: onlyLetters("I have 4 dogs")  => returns "I have  dogs"
 */
 
+function onlyLetters(string)
+{
+    
+    string =    string.replace("3", "")
+    return string;
+}
+
+console.log(onlyLetters("yes, i have 3 letters"))
 /* Ex.6 
    Write a function called "isThisAnEmail" which receives a string as a parameter and returns true if the string is a valid email address.
 */

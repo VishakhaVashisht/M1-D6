@@ -36,22 +36,43 @@ console.log(" Generating Random Number", random)
     Create a variable called "me" and assign to it an object containing the following information: name = your name, surname = your surname, age = your age.
 */
 
+const information = {
+    name: "Vishakha",
+    surName :"Vashisht",
+    age :20
+};
+
+let me = information;
+console.log(me)
 /* Ex.E 
     Programmatically remove the age property from the previously create object.
 */
+  delete information.age;
+  console.log(me)
 
 /* Ex.F 
    Programmatically add to the object me an array called "skills", containing the programming languages you know right now.
 */
-
+information.sklls ="test"
+console.log(me)
 /* Ex.G 
    Programmatically remove the last skill from the "skills" array inside the "me" object.
 */
-
+ let skills = ['skill1', 'skill2', 'skill3', 'skill4','skill5']
+ information.skills = skills
+ skills.pop()
+ console.log(me)
 // JS Functions
 /* Ex.1
     Write a function called "dice"; it should randomize an integer number between 1 and 6.
 */
+
+function dice(){
+    const rndInt = Math.floor(Math.random() * 6) + 1
+    console.log(rndInt)
+}
+
+dice()
 
 /* Ex.2 
     Write a function called "whoIsBigger" which receives 2 numbers as parameters and returns the biggest one.

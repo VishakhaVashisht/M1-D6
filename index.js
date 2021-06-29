@@ -30,55 +30,166 @@ console.log(sum)
     Create a variable called "random" and assign to it a random number between 0 and 20 (it should be randomly created at each execution).
 */
 
-        let random = Math.random() * (20 - 0) + 0
+        let random = Math.floor(Math.random() * (20 - 0) + 0)
 console.log(" Generating Random Number", random)
 /* Ex.D
     Create a variable called "me" and assign to it an object containing the following information: name = your name, surname = your surname, age = your age.
 */
 
+const information = {
+    name: "Vishakha",
+    surName :"Vashisht",
+    age :20
+};
+
+let me = information;
+console.log(me)
 /* Ex.E 
     Programmatically remove the age property from the previously create object.
 */
+  delete information.age;
+  console.log(me)
 
 /* Ex.F 
    Programmatically add to the object me an array called "skills", containing the programming languages you know right now.
 */
-
+information.skills =["html", "css" , "javaScript", "wordPress"]
+console.log(me)
 /* Ex.G 
    Programmatically remove the last skill from the "skills" array inside the "me" object.
 */
 
+ me.skills.pop()
+ console.log(me)
 // JS Functions
 /* Ex.1
     Write a function called "dice"; it should randomize an integer number between 1 and 6.
 */
 
+function dice(min, max){
+    const rndInt = Math.floor(Math.random() * 6) + 1
+    console.log(rndInt)
+}
+
+dice(1,6)
+
 /* Ex.2 
     Write a function called "whoIsBigger" which receives 2 numbers as parameters and returns the biggest one.
 */
+let num1, num2
+function whoIsBigger(num1, num2){
+
+    if(num1>num2)
+    {
+        return num1
+    }
+    else{
+       return num2
+    }
+}
+
+console.log(whoIsBigger(23,45))
 
 /* Ex.3
     Write a function called "splitMe" which receives a string as a parameter and returns an array with every word in that string.
     Ex. splitMe("I love coding") => returns ["I", "Love", "Coding"]
 */
+let word
+function splitMe(word) {
+   return  word.split(" ")    
+}
 
+console.log(splitMe("Hello strivers !"))
 /* Ex.4
     Write a function called "deleteOne" which receives a string and a boolean as parameters. If the boolean value is true it should return the string without the first letter, otherwise it should remove the last one from it.
 */
+
+function deleteOne(name,conditionApply) {
+     if(conditionApply === true)
+     {
+         return name.slice(1)
+     }
+     else{
+         return name.slice(0,-1)
+     }
+}
+
+console.log(deleteOne("Helloo!",true))
 
 /* Ex.5
    Write a function called "onlyLetters" which receives a string as a parameter and returns it removing all the digits.
    Ex.: onlyLetters("I have 4 dogs")  => returns "I have  dogs"
 */
 
+function onlyLetters(string)
+{
+    
+    string =    string.replace("/[0-9]/g", "")
+    return string;
+}
+
+console.log(onlyLetters("yes, i have 3 letters"))
 /* Ex.6 
    Write a function called "isThisAnEmail" which receives a string as a parameter and returns true if the string is a valid email address.
 */
 
+function isThisAnEmail(mail){
+    let validRegex = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+    let validation = validRegex.test(mail)
+    
+    if (validation === true) {
+
+        return true;
+    }
+    else{
+        return false;
+    }
+}
+console.log(isThisAnEmail("checkmail.3@gmil.com"))
 /* Ex.7
    Write a function called "whatDayIsIt" that should return the current day of the week.
 */
+function whatDayIsIt(){
 
+    var today = new Date();
+
+  var day = today.getDay();
+
+  switch(day){
+    case 0:
+    day = "Sunday";
+    break;
+
+    case 1:
+    day = "Monday";
+    break;
+
+    case 2:
+    day ="Tuesday";
+    break;
+
+    case 3:
+    day = "Wednesday";
+    break;
+
+    case 4:
+    day = "Thrusday";
+    break;
+
+    case 5:
+    day = "Friday";
+    break;
+
+    case 6:
+    day = "Saturday";
+    break;
+  }
+ console.log(day)
+
+
+}
+
+whatDayIsIt()
 /* Ex.8
     Write a function called "rollTheDices" which receives a number as a parameter.
     It should invoke the dice() function defined in Ex1 the specified amount of times,
@@ -90,20 +201,72 @@ console.log(" Generating Random Number", random)
     }
 */
 
+function rollTheDices(diceNumber){
+    let sum
+    let values = [ ]
+    for (let i = 0; i<diceNumber; i++){
+
+        values.push(dice(i)) 
+    }   
+    console.log("Array of dice Number:")
+    return values
+    var total=0;
+    for(var i in values) { total += values[i]; }
+    console.log("Sum of dice Number:")
+    return total
+}
+
+console.log(rollTheDices(3))
 /* Ex.9
    Write a function called "howManyDays" which receives a date as a parameter and should return the number of days passed since that date.
 */
+
+function howManyDays(year, month, day) {
+    const d = new Date();
+    currentYear = d.getFullYear();
+    currentMonth = d.getMonth();
+    currentDay = d.getDate();
+  
+  
+    let date1 = new Date(`${currentYear}/${currentMonth}/${currentDay}`);
+    let date2 = new Date(`${year}/${month}/${day}`);
+  
+  
+    let differenceInTime = date1.getTime() - date2.getTime();
+    let differenceInDays = differenceInTime / (1000 * 3600 * 24);
+    return parseInt(differenceInDays);
+  }
+  
+  
+  console.log(howManyDays(2021, 03, 2));  
 
 /* Ex.10
    Write a function called "isTodayMyBirthday" which should return true if today's your birthday, false otherwise.
 */
 
+function isTodayMyBirthday() {
+    const d = new Date();
+    const currentMonth = d.getMonth();
+    const currentDay = d.getDate();
+    if (currentMonth === 1 && currentDay === 1) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+  
+  
+  console.log(isTodayMyBirthday());
+  
 // JS Arrays // Objs
 // NOTE: movies array is defined at the end of this file!
 
 /* Ex.11
    Write a function called "deleteProp" which receives an object and a string as parameters, and returns the given object after deleting its property named as the given string.
 */
+
+
+
 
 /* Ex.12 
     Write a function called "olderMovie" which finds the oldest movie in the array provided at the end of this file.
@@ -154,6 +317,17 @@ console.log(" Generating Random Number", random)
   ***
 */
 
+function halfTree(paraNumber){
+
+
+    for(var i=1; i<=paraNumber; i++){
+        console.log("* ".repeat(i));
+     }
+ 
+} 
+
+halfTree(5)
+
 /* Ex.22 
   Create a function called "tree" which receives a number as a parameter and builds an "*" tree with the given height.
   Example: 
@@ -166,7 +340,33 @@ console.log(" Generating Random Number", random)
 /* Ex.23
   Create a function called "isItPrime" that receives a number as a parameter and returns true if the given number is a prime number.
 */
+const isItPrime = (primeNumber) =>{
+let isPrime = true;
+if (primeNumber === 1) {
+    console.log("1 is neither prime nor composite number.");
+}
 
+else if (primeNumber > 1) {
+
+    for (let i = 2; i < primeNumber; i++) {
+        if (primeNumber % i == 0) {
+            isPrime = false;
+            break;
+        }
+    }
+
+    if (isPrime == true) {
+        console.log(`${primeNumber} is a prime number`);
+    } else {
+        console.log(`${primeNumber} is a not prime number`);
+    }
+}
+else {
+    console.log("The number is not a prime number.");
+}
+}
+
+isItPrime(45)
 /* This movies array is used throughout the exercises. Please don't change it :)  */
 const movies = [
     {
